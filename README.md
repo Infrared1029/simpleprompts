@@ -74,12 +74,11 @@ my_prompt = Prompt(
     p.available_tools(
         p.search_web(
             "Use this tool to get up to-date data from the web"
-        ).indent(2),
+        ).indent(2).format("xml"),
         p.code_interpreter(
             "Use this tool to execute code"
-        ).indent(2)
-    # added indentation and format here for this specific section
-    ).indent(2).format("xml"),
+        ).indent(2).format("xml")
+    ),
     p.guidelines(
         "1. Always use the `search_web` tool if you need up to date info",
         "2. Always use the code_interpreter tool if you need to perform computations"
@@ -92,14 +91,13 @@ print(my_prompt.render(format="markdown"))
 # role
 You are a helpful assistant
 
-  <available_tools>
-    <search_web>
-    Use this tool to get up to-date data from the web
-    </search_web>
-    <code_interpreter>
-    Use this tool to execute code
-    </code_interpreter>
-  </available_tools>
+# available_tools
+  <search_web>
+  Use this tool to get up to-date data from the web
+  </search_web>
+  <code_interpreter>
+  Use this tool to execute code
+  </code_interpreter>
 
 # guidelines
 1. Always use the `search_web` tool if you need up to date info

@@ -40,10 +40,10 @@ class Section:
     def render_section(
         self, depth: int = 0, format: Literal["xml", "markdown"] = "xml"
     ):
-        format = self._format or format
+        format_to_use = self._format or format
         if not self.content:
             return ""
-        if format == "xml":
+        if format_to_use == "xml":
             s = f"<{self.name}>\n"
         else:
             s = f"{'#' * (depth + 1)} {self.name}\n"
@@ -55,7 +55,7 @@ class Section:
             elif c is None:
                 pass
         s = s.rstrip()
-        if format == "xml":
+        if format_to_use == "xml":
             s += f"\n</{self.name}>\n"
         return self._indent(s.strip(), self.indent_spaces)
 
