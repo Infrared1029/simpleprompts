@@ -1,0 +1,16 @@
+[project]
+name = "simpleprompt"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+  { name = "Yasser Ahmed", email = "yasserfawzi1029@outlook.com" },
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.0.1",
+]
