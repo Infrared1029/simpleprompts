@@ -1,4 +1,4 @@
-# Simpleprompt
+# Simpleprompts
 
 This readme is still T.B.D.
 
@@ -6,7 +6,7 @@ But here is a quick motivation for why I made this.
 Building prompts started to get really annoying when I need to "conditionally" add or remove stuff and switch between formats (go from xml to markdown for example), so I decided to create this minimal DSL (Domain Specific Langauge) that can help me create prompts programmatically while still being fairly readable.
 
 ```python
-from simpleprompt import Prompt, p
+from simpleprompts import Prompt, p
 
 my_prompt = Prompt(
     p.role(

@@ -1,7 +1,7 @@
 [project]
-name = "simpleprompt"
+name = "simpleprompts"
 version = "0.1.0"
-description = "Add your description here"
+description = "A simple library for constructing LLM prompts"
 authors = [
   { name = "Yasser Ahmed", email = "yasserfawzi1029@outlook.com" },
 ]
