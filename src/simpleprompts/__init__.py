@@ -17,10 +17,10 @@ class Section:
         self.name = name
         self.indent_spaces = 0
         self._format = None
-        self.content = []
+        self._content = []
 
     def __call__(self, *content):
-        self.content = content
+        self._content = content
         return self
 
     @staticmethod
@@ -36,18 +36,22 @@ class Section:
     def format(self, format: Literal["xml", "markdown"] = "xml"):
         self._format = format
         return self
+    
+    def content(self, *content):
+        self._content = content
+        return self
 
     def render_section(
         self, depth: int = 0, format: Literal["xml", "markdown"] = "xml"
     ):
         format_to_use = self._format or format
-        if not self.content:
+        if not self._content:
             return ""
         if format_to_use == "xml":
             s = f"<{self.name}>\n"
         else:
             s = f"{'#' * (depth + 1)} {self.name}\n"
-        for c in self.content:
+        for c in self._content:
             if isinstance(c, str):
                 s += c + "\n"
             elif isinstance(c, Section):
@@ -60,12 +64,14 @@ class Section:
         return self._indent(s.strip(), self.indent_spaces)
 
 
-class P:
+class SectionBuilder:
     def __getattr__(self, name):
         return Section(name)
+    
+    def __call__(self, name):
+        return Section(name)
+
+section = SectionBuilder()
 
 
-p = P()
-
-
-__all__ = ["p", "Prompt"]
+__all__ = ["section", "Prompt"]
