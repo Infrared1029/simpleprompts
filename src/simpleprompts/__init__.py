@@ -36,7 +36,7 @@ class Section:
     def format(self, format: Literal["xml", "markdown"] = "xml"):
         self._format = format
         return self
-    
+
     def content(self, *content):
         self._content = content
         return self
@@ -67,11 +67,12 @@ class Section:
 class SectionBuilder:
     def __getattr__(self, name):
         return Section(name)
-    
+
     def __call__(self, name):
         return Section(name)
 
-section = SectionBuilder()
+
+p = SectionBuilder()
 
 
-__all__ = ["section", "Prompt"]
+__all__ = ["p", "Prompt"]
