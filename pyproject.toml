@@ -10,6 +10,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
 
+[project.urls]
+repository  = "https://github.com/Infrared1029/simpleprompts"
+
 [dependency-groups]
 dev = [
     "ipykernel>=7.0.1",
