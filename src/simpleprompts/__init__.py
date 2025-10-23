@@ -54,7 +54,7 @@ class Section:
         for c in self._content:
             if isinstance(c, Section):
                 s += c.render_section(depth=depth + 1, format=format) + "\n"
-            elif c is None:
+            elif c is None or c is False:
                 pass
             else:
                 s += str(c) + "\n"
