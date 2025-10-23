@@ -52,12 +52,12 @@ class Section:
         else:
             s = f"{'#' * (depth + 1)} {self.name}\n"
         for c in self._content:
-            if isinstance(c, str):
-                s += c + "\n"
-            elif isinstance(c, Section):
+            if isinstance(c, Section):
                 s += c.render_section(depth=depth + 1, format=format) + "\n"
             elif c is None:
                 pass
+            else:
+                s += str(c) + "\n"
         s = s.rstrip()
         if format_to_use == "xml":
             s += f"\n</{self.name}>\n"
