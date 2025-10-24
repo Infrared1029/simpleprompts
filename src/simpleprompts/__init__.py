@@ -5,7 +5,7 @@ class Prompt:
     def __init__(self, *sections):
         self.sections = sections
 
-    def render(self, format: Literal["xml", "markdown"]):
+    def render(self, format: Literal["xml", "markdown"] = "xml"):
         return "\n\n".join(
             str(s) if not isinstance(s, Section) else s.render_section(format=format)
             for s in self.sections
